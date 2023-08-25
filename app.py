@@ -2,11 +2,12 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+# creating an instance of the FastAPI amd the Jinja2Templates class
 app = FastAPI()
-
 pages = Jinja2Templates(directory="templates")
 
 
+# endpoints for the website
 @app.get("/login", response_class=HTMLResponse)
 async def render_login(request: Request):
   return templates.TemplateResponse("login.html", {"request": request})
