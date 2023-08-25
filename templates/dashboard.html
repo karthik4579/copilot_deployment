@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Documents</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/materialize@1.0.0/dist/materialize.min.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .docs-list {
+            margin-top: 20px;
+        }
+        
+        .doc-item {
+            margin-bottom: 20px;
+        }
+        
+        .doc-item .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        .doc-item h2 {
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .doc-item p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        .doc-item .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .doc-item .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Hello, {{ username }}!</h2>
+        </div>
+        <div class="docs-list">
+            <div class="doc-item">
+                <i class="material-icons">insert_drive_file</i>
+                <h2>Document 1</h2>
+                <p>This is a sample document.</p>
+                <button class="btn">Edit</button>
+            </div>
+            <div class="doc-item">
+                <i class="material-icons">insert_drive_file</i>
+                <h2>Document 2</h2>
+                <p>This is another sample document.</p>
+                <button class="btn">Edit</button>
+            </div>
+    </div>
+</body>
+</html>

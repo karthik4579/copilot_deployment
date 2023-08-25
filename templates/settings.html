@@ -1,0 +1,251 @@
+<html>
+<head>
+  <!-- Load Bootstrap from CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the webpage */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #4285f4;
+      color: white;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .header button {
+      border: none;
+      background-color: transparent;
+      color: white;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .header button:hover {
+      background-color: #357ae8;
+    }
+
+    .sidebar {
+      background-color: #f1f3f4;
+      width: 200px;
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar li:hover {
+      background-color: #e8eaed;
+    }
+
+    .sidebar li.active {
+      background-color: #4285f4;
+      color: white;
+    }
+
+    .main {
+      width: calc(100% - 200px);
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+
+    .main h2 {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+
+    .main p {
+      margin-left: 20px;
+    }
+
+    .main .form-group {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    
+     /* Style the switch */
+     .switch {
+        position:relative; 
+        display:inline-block; 
+        width:60px; 
+        height:34px; 
+     }
+     
+     /* Hide default HTML checkbox */
+     .switch input {display:none;}
+     
+     /* The slider */
+     .slider {
+        position:absolute; 
+        cursor:pointer; 
+        top:0; 
+        left:0; 
+        right:0; 
+        bottom:0; 
+        background-color:#ccc; 
+        -webkit-transition:.4s; 
+        transition:.4s; 
+     }
+     
+     .slider:before {
+        position:absolute; 
+        content:""; 
+        height:26px; 
+        width:26px; 
+        left:4px; 
+        bottom:4px; 
+        background-color:white; 
+        -webkit-transition:.4s; 
+        transition:.4s; 
+     }
+     
+     input:checked + .slider {
+        background-color:#2196F3; 
+     }
+     
+     input:focus + .slider {
+        box-shadow:0 0 1px #2196F3; 
+     }
+     
+     input:checked + .slider:before {
+        -webkit-transform:translateX(26px); 
+        -ms-transform:translateX(26px); 
+        transform:translateX(26px); 
+     }
+     
+     /* Rounded sliders */
+     .slider.round {
+        border-radius:34px; 
+     }
+     
+     .slider.round:before {
+        border-radius:50%; 
+     }
+    
+  </style>
+</head>
+<body>
+  <!-- Header with the site title and the back button -->
+  <div class="header">
+    <h1>Google Docs</h1>
+    <button onclick="goBack()"><img src="https://icons.getbootstrap.com/icons/arrow-left.svg" width="16" height="16"></button>
+  </div>
+  <!-- Sidebar with the settings categories -->
+  <div class="sidebar">
+    <ul>
+      <li class="active" onclick="showGeneral()">General</li>
+      <li onclick="showLanguage()">Language</li>
+      <li onclick="showAccessibility()">Accessibility</li>
+      <li onclick="showHelp()">Help</li>
+    </ul>
+  </div>
+  <!-- Main content area with the settings options -->
+  <div class="main">
+    <!-- General settings section -->
+    <div id="general">
+      <h2>General</h2>
+      <p>Here you can change some general settings for Google Docs.</p>
+      <!-- Use Bootstrap form components for the settings options -->
+      <div class="form-group">
+        <label for="user-name">User name</label>
+        <!-- Use an input element with type="text" for the user name -->
+        <input type="text" class="form-control" id="user-name" value="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="theme">Theme</label>
+        <!-- Use a select element for choosing the theme -->
+        <select class="form-control" id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <!-- Use a custom switch component for toggling the autosave option -->
+        <label>Autosave</label>
+        <!-- The switch - the box around the slider -->
+        <label class="switch">
+          <!-- The hidden checkbox -->
+          <input type="checkbox" checked>
+          <!-- The slider -->
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <!-- Language settings section (hidden by default) -->
+    <div id="language" style="display:none;">
+      <h2>Language</h2>
+      <p>Here you can change the language settings for Google Docs.</p>
+      <!-- Use Bootstrap form components for the settings options -->
+      <div class="form-group">
+        <label for="document-language">Document language</label>
+        <!-- Use a select element for choosing the document language -->
+        <select class="form-control" id="document-language">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <!-- Use a custom switch component for toggling the spell check option -->
+        <label>Spell check</label>
+        <!-- The switch - the box around the slider -->
+        <label class="switch">
+          <!-- The hidden checkbox -->
+          <input type="checkbox" checked>
+          <!-- The slider -->
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <!-- Accessibility settings section (hidden by default) -->
+    <div id="accessibility" style="display:none;">
+      <h2>Accessibility</h2>
+      <p>Here you can change the accessibility settings for Google Docs.</p>
+      <!-- Use Bootstrap form components for the settings options -->
+      <div class="form-group">
+        <!-- Use a custom switch component for toggling the screen reader option -->
+        <label>Screen reader</label>
+        <!-- The switch - the box around the slider -->
+        <label class="switch">
+          <!-- The hidden checkbox -->
+          <input type="checkbox">
+          <!-- The slider -->
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="form-group">
+        <!-- Use a custom switch component for toggling the high contrast option -->
+        <label>High contrast</label>
+        <!-- The switch - the box around the slider -->
+        <label class="switch">
+          <!-- The hidden checkbox -->
+          <input type="checkbox">
+          <!-- The slider -->
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- Help section (hidden by default) -->
