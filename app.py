@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 
 # creating an instance of the FastAPI amd the Jinja2Templates class
 app = FastAPI()
-pages = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templates")
 
 
 # endpoints for the website
@@ -19,7 +19,7 @@ async def render_signup(request: Request):
 
 
 @app.get("/dashboard", response_class=HTMLResponse)
-async def render_home(request: Request):
+async def render_dashboard(request: Request):
   return templates.TemplateResponse("dashboard.html", {"request": request})
 
 

@@ -3,90 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Documents</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/materialize@1.0.0/dist/materialize.min.js"></script>
+    <title>Writer's CoPilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+
+        .menu {
+            background: #333;
+            width: 200px;
+            height: 100vh;
             padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
-        
+
+        .menu.menu-open {
+            transform: translateX(0);
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 10px 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        .content {
+            flex: 1;
+        }
+
         .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-bottom: 1px solid #333;
+            background: none;
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
+            text-align: center;
+            margin-left: 30px; /* Adjust the margin to move it slightly to the right */
         }
-        
-        .docs-list {
-            margin-top: 20px;
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 54px;
         }
-        
-        .doc-item {
-            margin-bottom: 20px;
-        }
-        
-        .doc-item .material-icons {
-            font-size: 24px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        
-        .doc-item h2 {
-            margin-top: 0;
-            font-weight: bold;
-            font-size: 18px;
-            line-height: 1.5;
-        }
-        
-        .doc-item p {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        
-        .doc-item .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+
+        button#menu-button {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            padding: 10px 15px;
             cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 10px;
         }
-        
-        .doc-item .btn:hover {
-            background-color: #45a049;
+
+        button#menu-button:focus {
+            outline: none;
+        }
+
+        footer {
+            background: transparent;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Hello, {{ username }}!</h2>
-        </div>
-        <div class="docs-list">
-            <div class="doc-item">
-                <i class="material-icons">insert_drive_file</i>
-                <h2>Document 1</h2>
-                <p>This is a sample document.</p>
-                <button class="btn">Edit</button>
-            </div>
-            <div class="doc-item">
-                <i class="material-icons">insert_drive_file</i>
-                <h2>Document 2</h2>
-                <p>This is another sample document.</p>
-                <button class="btn">Edit</button>
-            </div>
+    <button id="menu-button" onclick="toggleMenu()">Menu</button>
+    <div class="menu">
+        <button id="close-button" onclick="closeMenu()">Close</button>
+        <ul>
+            <li><a href="#my-account">My Account</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
     </div>
+    
+    <div class="content">
+        <header>
+            <div class="header">
+                <h1>Writer's CoPilot</h1>
+            </div>
+        </header>
+        
+        <!-- Your page content goes here -->
+    </div>
+    
+    <video autoplay muted loop id="bg-video">
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('menu-open');
+        }
+
+        function closeMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.remove('menu-open');
+        }
+    </script>
+    <footer>
+        &copy; 2023 Writer's CoPilot. All rights reserved.
+    </footer>
 </body>
 </html>
+
+
+

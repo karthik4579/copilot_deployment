@@ -1,85 +1,219 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-        }
-        
-        form {
-            margin: 0 auto;
-            max-width: 500px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            margin-top: 10px;
-        }
-        
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <title>Signup</title>
+  
+  <!-- Use Google Fonts for modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
+  
+  <style>
+
+
+.container {
+  max-width: 500px;  
+  margin: 0;
+}
+
+.page-header {
+  background: transparent;
+  color: #fff; 
+  padding: 20px;
+  text-align: center; 
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 54px;  
+}
+
+.page-header i {
+  margin-right: 10px;
+}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+    }
+
+    .container {
+      animation: fadeIn 1s ease-in; 
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);  
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      background: linear-gradient(to right, #667eea, #764ba2); 
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .login-form input {
+      border: 2px solid #e7e7e7;
+      transition: border 0.3s ease;
+    }
+
+    .login-form input {
+     max-width: 300px;
+     margin: 0 auto;
+    }
+
+    .login-form button {
+      background: #5564d8;
+      transition: background 0.3s ease;
+    }
+
+    .login-form button:hover {
+      background: #303f9f;
+    }
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  animation: containerFadeIn 0.5s ease-out;
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {  
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  padding: 15px; 
+  border-radius: 5px 5px 0 0;
+}
+
+.header h2 {
+   color:#fff; 
+   margin :0; 
+}
+
+.login-form {
+   padding :20px; 
+   background :#fff; 
+   border-radius :0
+   border-radius :5px; 
+}
+
+.login-form label { 
+   display :block; 
+   margin-bottom :5px; 
+}
+
+.login-form input { 
+   padding :10px; 
+   border-radius :5px; 
+   border :1px solid #ddd; 
+   width :100%; 
+   margin-bottom :20px; 
+}
+
+.login-form button { 
+   background :#5564d8; 
+   color :#fff; 
+   padding :10px; 
+   border :none; 
+   border-radius :5px; 
+   cursor :pointer; 
+}
+
+.login-form button:hover { 
+   background :#303f9f; 
+}
+
+.forgot-password { 
+   color :#999; 
+   transition :color
+   transition :color
+   color :#666; 
+
+.login-options { display:flex ; justify-content :space-between ; } 
+
+.login-btn { padding :10px ; border:none ; border-radius :5px ; color:#fff ; width :45% ; text-align:center ; } 
+
+</style>
+
 </head>
+
 <body>
-    <h1>Sign Up</h1>
-    <form action="/signup" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+
+<div class="page-header">
+<i class="fas fa-pen"></i> <h1>Writer's Copilot</h1> </div>
+
+<form class="login-form" onsubmit="return handleSignup()">
+
+<div class="container">
+<div class="header">
+<h2>Signup</h2>
+</div>
+<div class="login-form">
+<label for="username">Username</label>
+<input type="text" id="username" name="username" required>
 
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required>
 
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
+<label for="password">Password</label>
+<input type="password" id="password" name="password" required>
 
 
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password">
+<label for="confirm-password">Confirm Password</label>
+<input type="password" id="confirm-password" name="confirm-password" required>
 
 
-        <input type="submit" value="Sign Up" style="background-color:#4CAF50; color:#fff;">
-    </form>
+<button type="submit">Sign Up</button>
+</div>
+<p class="forgot-password">Already have an account? <a href="login.html">Log in</a></p>
+</div>
+
+</form>
+
 </body>
+
+<script>
+
+function handleSignup(e) {
+
+  // Get input values
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirm_password = document.getElementById('confirm-password').value;
+  
+  // Validate signup
+  if(password === confirm_password) {
+    // Send a request to the server to create a new user account
+    // If successful, redirect to the dashboard page
+    // If not, show an error message
+    return false; 
+  }
+
+  // Show error if passwords do not match
+  alert('Passwords do not match');
+  return false;
+
+</script>
+
 </html>
